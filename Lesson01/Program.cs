@@ -4,29 +4,11 @@
     {
         static void Main(string[] args)
         {
-            BankAccount firstAcc = new BankAccount("Alex", "123456789", 1000);
-            BankAccount secondAcc = new BankAccount("John", "987654321");
-            firstAcc.Deposit(500);
-            secondAcc.Deposit(1000);
-            firstAcc.Withdraw(200);
-            Console.WriteLine(firstAcc.GetInfo());
-            Console.WriteLine(secondAcc.GetInfo());
-            try
-            {
-                firstAcc.Deposit(-50);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Ошибка: {ex.Message}");
-            }
-            try
-            {
-                secondAcc.Withdraw(2000);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Ошибка: {ex.Message}");
-            }
+            List<BankAccount> accounts = new List<BankAccount>();
+            CreditAccount account1 = new CreditAccount("Иванов", "1234567890", 1000, 500);
+            SavingsAccount account2 = new SavingsAccount("Петров", "0987654321", 2000, 5);
+            accounts.Add(account1);
+            accounts.Add(account2);
         }
     }
 }

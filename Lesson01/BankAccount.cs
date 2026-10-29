@@ -9,7 +9,7 @@ namespace Lesson1
     {
         public string Owner { get; }
         public string AccountNumber { get; }
-        public decimal Balance { get; private set; }
+        public decimal Balance { get; protected set; }
 
 
         public BankAccount(string owner, string accountNumber, decimal balance)
@@ -42,7 +42,7 @@ namespace Lesson1
             }
             Balance += amount;
         }
-        public void Withdraw(decimal amount)
+        public virtual void Withdraw(decimal amount)
         {
             if (amount <= 0)
             {
